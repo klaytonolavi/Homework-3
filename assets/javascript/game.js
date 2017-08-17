@@ -1,82 +1,49 @@
 
 
 //Define Variables
-var computerGuess = String.fromCharCode(97 + Math.round(Math.random() * 25));
-var lettersGuessed = [];
-var guesses = 0;
-
+var letters = [];
+var guesses = 10;
 var wins = 0;
 var losses = 0;
-var running = true;
 
 
+var computerGuess = String.fromCharCode(97 + Math.round(Math.random() * 25));
 
+function updateDom() {
+    document.querySelector("#wins").innerHTML = wins;
+    document.querySelector("#losses").innerHTML = losses;
+    document.querySelector("#guesses").innerHTML = guesses;
+    document.querySelector("#letters").innerHTML = letters;
+
+}
+
+updateDom();
+
+function reset() {
+	guesses = 10;
+	letters = [];
+	computerGuess = String.fromCharCode(97 + Math.round(Math.random() * 25));
+}
 
 
 document.onkeyup = function(event) {
-    if(running) {
-        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        console.log(userGuess);
+        var userGuess = event.key;
+        
 
-        for (i = 0; i < guesses; i++) {
-            lettersGuessed.push(userGuess);
-            $('#lettersGuessed').append(lettersGuessed[i]);
-        }
-    }
 
-    if(userGuess === computerGuess) {
+    if (userGuess === computerGuess) {
         wins++;
-        $('#numWins').html(wins);
-
-     } else if (userGuess !== computerGuess) {
-        guesses++;
-        $('#guesses').html(guesses);
+        reset();  
+    } else if ((userGuess !== computerGuess) && (guesses === 0)) {
+        losses++
+        reset();
+    } else {
+        guesses--;
     }
 
-    if(guesses === 10) {
-        losses++;
-        $('#losses').html(losses);
-        gameOver();
-    }
+    letters.push(userGuess);
+
+    updateDom();
+
 }
-
-function gameOver(){
-    running = false;
-}
-
-
-// document.onkeyup = function(event) {
-// 	if(running) {
-
-
-// var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-// console.log(userGuess);
-
-// for (i = 0; i < guesses; i++) {
-
-
-// }
-
-// lettersGuessed.push(letters);
-
-// if (userGuess === computerGuess) {
-// 	wins++;
-// 	$("#wins").html(wins);
-//  } else if (userGuess !== computerGuess) {
-// 	guesses++;
-// 	$("#guesses").html(guesses);
-// }
-
-// if (guesses === 10) {
-// 	losses++;
-// 	$("#losses").html(losses);
-// 	gameOver();
-
-// }
-// }
-
-
-
-// 	};
 
