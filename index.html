@@ -5,51 +5,27 @@
 <meta charset="UTF-8">
 <title>The Psychic Game!</title>
 
+<link =rel"reset" href="reset.css">
+<link =rel"stylesheet" href="style.css">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
 </head>
 <body>
 <h1>The Psychic Game</h1>
 <br>
 <div id="game">
 	<p>Guess what letter I am thinking.</p>
+	<p>Wins: <span id="wins">0</span></p>
+	<p>Losses: <span id="losses">0</span></p>
+	<p>Guesses: <span id="guesses">10</span></p>
+	<p>Guesses so far: <span id="lettersGuessed">0</span></p>
 </div>
 
-<script type="text/javascript">
-
-//Define Variables
-var computerChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var userGuess = event.key;
-
-var wins = 0;
-var losses = 0;
-var ties = 0;
-
-document.onkeyup = function(event) {
-
-var userGuess = event.key;
-
-var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-
-if (userGuess === computerGuess) {
-	wins++;
- else if (userGuess !== computerGuess) {
-	losses++;
-}
 
 
-
-
-
-var html = 
-	"<p>wins: " + wins + "</p>" +
-	"<p>losses: " + losses + "</p>" +
-	"<p>Your guesses so far: " + userGuess + "</p>";
-
-	document.querySelector("#game").innerHTML = html;
-	}
-};
-
-</script>
-
-
+<script src="assets/javascript/game.js"></script>
 </body>
 </html>
