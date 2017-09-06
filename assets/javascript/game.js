@@ -33,10 +33,12 @@ document.onkeyup = function(event) {
 
     if (userGuess === computerGuess) {
         wins++;
-        reset();  
+        reset();
+        alert("You guessed correctly!");
     } else if ((userGuess !== computerGuess) && (guesses === 0)) {
         losses++
         reset();
+        alert("You are out of guesses!");
     } else {
         guesses--;
     }

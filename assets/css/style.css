@@ -1,3 +1,27 @@
 body {
-	background-color: blue;
+	background-color: #ffdbdc;
+}
+
+#header {
+	font-family: 'Julius Sans One', sans-serif;
+	background-color: #dd85da;
+	max-width: 80%;
+	height: 100px;
+	text-align: center;
+	margin: auto;
+	padding-top: 8px;
+	border: solid black 1px;
+}
+
+#game {
+	text-align: center;
+	font-family: 'Hind Siliguri', sans-serif;
+}
+
+#gameDiv {
+	margin: auto;
+	background-color: #f3f4b2;
+	max-width: 80%;
+	border: solid black 1px;
+
 }
